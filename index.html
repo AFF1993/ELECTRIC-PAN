@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Pan - Solusi Memasak Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .promo-timer {
+            background: linear-gradient(135deg, #ff4d4d 0%, #f22e2e 100%);
+            animation: pulse 2s infinite;
+        }
+        
+        .price-tag {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-tag::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%);
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background-color: #f22e2e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(242, 46, 46, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(242, 46, 46, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(242, 46, 46, 0);
+            }
+        }
+        
+        .form-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+        }
+        
+        .promo-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .promo-image::after {
+            content: "PROMO HARI INI!";
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            background-color: #f22e2e;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-fire text-2xl text-red-500 mr-2"></i>
+                <span class="text-xl font-bold text-gray-800">ElectricPan</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-red-500">Fitur</a>
+                <a href="#details" class="text-gray-600 hover:text-red-500">Detail</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-red-500">Testimoni</a>
+                <a href="#order" class="text-gray-600 hover:text-red-500">Pesan</a>
+            </div>
+            <button class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section with Main Image -->
+    <section class="hero-section py-8 md:py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <img src="https://cdn.orderonline.id/uploads/images_7484011740052242795.png" alt="Electric Pan" class="w-full max-w-2xl rounded-lg shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Title & Description -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">ELECTRIC PAN</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Memasak tanpa takut kehabisan gas, satu panci untuk berbagai macam kegunaan, kunci membuat makanan mewah
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Features -->
+    <section id="features" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-10">Keunggulan Electric Pan</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-utensils text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Multi Fungsi</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Kompor listrik multi fungsi, mewujudkan metode memasak multi fungsi, merebus, memanggang, menggoreng, menggoreng, menggoreng, metode memasak multi fungsi.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-shield-alt text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Material Premium</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Panci bagian dalam terbuat dari glasir nano-keramik, yang tahan gores dan tahan aus, tidak mudah menempel di panci, dan mudah dibersihkan.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-temperature-high text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Pengaman Ganda</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Suhu tinggi/pembakaran kering, perlindungan mati panas berlebih, perlindungan mati otomatis di atas 185 derajat, perlindungan ganda.
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-broom text-purple-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Mudah Dibersihkan</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Tangki bagian dalam yang dapat dilepas untuk mengukus, mudah dibersihkan, anti panas dan tahan lama.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-hand-holding text-yellow-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Pegangan Ergonomis</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Pegangan yang menebal, mudah dibawa, anti panas dan tahan lama.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-pink-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-fire text-pink-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Pemanasan Merata</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Seluruh lingkaran panas, dan pemanasan merata dan tidak gosong.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details with Images -->
+    <section id="details" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-10">Detail Produk</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <img src="https://cdn.orderonline.id/uploads/images_3182771740052244465.png" alt="Detail Electric Pan" class="w-full rounded-lg shadow-md mb-4">
+                    <p class="text-gray-600">Desain modern dengan pegangan ergonomis</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://cdn.orderonline.id/uploads/images_8991721740052242484.png" alt="Detail Electric Pan" class="w-full rounded-lg shadow-md mb-4">
+                    <p class="text-gray-600">Material premium anti lengket</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://cdn.orderonline.id/uploads/images_9979691740052244376.png" alt="Detail Electric Pan" class="w-full rounded-lg shadow-md mb-4">
+                    <p class="text-gray-600">Sistem pemanasan merata</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Variants -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-10">Varian Warna Tersedia</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="h-32 bg-gray-200 rounded-lg mb-3"></div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="h-32 bg-gray-400 rounded-lg mb-3"></div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="h-32 bg-red-200 rounded-lg mb-3"></div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="h-32 bg-blue-200 rounded-lg mb-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-10">Apa Kata Pelanggan Kami?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Dewi S.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Electric Pan ini benar-benar mengubah cara saya memasak. Sekarang bisa masak apa saja tanpa repot, dari goreng telur sampai rebus sayur. Yang paling saya suka, mudah dibersihkan!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Budi K.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Sebagai anak kos, ini solusi sempurna. Hemat listrik dibanding kompor biasa, dan bisa buat semua jenis masakan. Sudah 3 bulan pakai, masih seperti baru."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Rina M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Pemanasannya sangat merata, tidak seperti kompor listrik biasa yang sering gosong di tengah. Sekeluarga sudah pakai untuk sarapan setiap hari. Recommended banget!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Countdown -->
+    <section class="py-8 bg-red-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="promo-timer inline-block px-6 py-3 rounded-full mb-4">
+                <h3 class="text-xl font-bold">PROMO BERAKHIR DALAM:</h3>
+            </div>
+            <div class="flex justify-center space-x-4">
+                <div class="bg-white text-red-600 rounded-lg p-3 w-20">
+                    <div class="text-2xl font-bold" id="hours">12</div>
+                    <div class="text-xs">JAM</div>
+                </div>
+                <div class="bg-white text-red-600 rounded-lg p-3 w-20">
+                    <div class="text-2xl font-bold" id="minutes">45</div>
+                    <div class="text-xs">MENIT</div>
+                </div>
+                <div class="bg-white text-red-600 rounded-lg p-3 w-20">
+                    <div class="text-2xl font-bold" id="seconds">30</div>
+                    <div class="text-xs">DETIK</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Notes -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">Catatan Penting:</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li class="flex items-start">
+                        <i class="fas fa-truck text-red-500 mt-1 mr-2"></i>
+                        <span>Pengiriman 2 - 4 Hari Setelah Pemesanan</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-red-500 mt-1 mr-2"></i>
+                        <span>Mohon Isi Alamat Dengan Lengkap</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-certificate text-red-500 mt-1 mr-2"></i>
+                        <span>100% Product Original</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="order" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">PROMO SPESIAL HARI INI</h2>
+                    <p class="text-gray-600">Dapatkan Diskon Spesial Untuk Hari Ini Saja, Harga Akan Kembali Normal Setelah:</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="price-tag bg-gray-100 p-6 rounded-lg relative w-full md:w-1/2">
+                        <div class="discount-badge">-47%</div>
+                        <div class="text-center">
+                            <p class="text-gray-500 line-through mb-1">Rp 459.000</p>
+                            <p class="text-4xl font-bold text-red-600 mb-2">Rp 242.000</p>
+                            <p class="text-gray-600">Harga Promo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2">
+                        <div class="text-center">
+                            <p class="text-xl font-semibold text-gray-800 mb-4">Anda Hemat</p>
+                            <p class="text-3xl font-bold text-green-600">Rp 217.000</p>
+                            <p class="text-gray-500 mt-2">Dibanding harga normal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Image -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="promo-image max-w-4xl mx-auto">
+                <img src="https://cdn.orderonline.id/uploads/images_8476591751625186671.png" alt="Promo Electric Pan" class="w-full rounded-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="form-container max-w-2xl mx-auto p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">FORM PEMESANAN</h2>
+                
+                <!-- OrderOnline Embed Code -->
+                <div class="ooef">
+                    <form class="orderonline-embed-form" data-username="emma" data-product-slug="electric-pan" data-product-id="67b71658770a9e327d084668" id="oo-embed-form-electric-pan-4053" data-origin="orderonline">
+                        <div class="ooef-loader">
+                            <style>
+                                .ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}
+                                @keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                @-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}
+                                .ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}
+                                .ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}
+                                .ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}
+                                @-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                                @keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}
+                            </style>
+                            <div aria-live="polite" role="status"><div>Loading...</div></div>
+                        </div>
+                    </form>
+                </div>
+                <script>
+                    if (typeof xLogError != 'function') {
+                        var xLogError = function (error) {
+                            var req = new XMLHttpRequest();
+                            var payload = JSON.stringify({
+                                url: document.location.href,
+                                line: error.line,
+                                stack: error.stack
+                            });
+                            var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                            req.open('POST', 'https://api.orderonline.id/log', true);
+                            req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                            req.send(params);
+                        };
+                    }
+                    try {
+                        if (typeof xEmbedScript != 'function') {
+                            var xEmbedScript = function () {
+                                !function(w, d, e, v, id, t, s) {
+                                    if (d.getElementById(id)) return;
+                                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                    s = d.getElementsByTagName(e)[0];
+                                    s.parentNode.insertBefore(t, s);
+                                }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                            };
+                        }
+                        if (typeof xEmbedInit != 'function') {
+                            var xEmbedInit = function (w, n) {
+                                if (w.ooe) return;
+                                n = w.ooe = function() {
+                                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                                };
+                                if (!w._ooe) w._ooe = n;
+                                n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                            };
+                        }
+                        xEmbedInit(window);
+                        ooe('setup', 'redirect', 'https://emma.orderonline.id');
+                        ooe('init', '5f16831a9d8e8e4fb67472e5', '67b71658770a9e327d084668', '67b71658770a9e327d084669', 'oo-embed-form-electric-pan-4053', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":false});
+                        if (!window.jQuery) {
+                            !function(w, d, e, v, id, t, s) {
+                                if (d.getElementById(id)) return;
+                                t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                t.addEventListener('load', xEmbedScript);
+                                s = d.getElementsByTagName(e)[0];
+                                s.parentNode.insertBefore(t, s);
+                            }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                        } else {
+                            xEmbedScript();
+                        }
+                    } catch (e) {
+                        xLogError(e);
+                        throw e;
+                    }
+                </script>
+                <!-- End OrderOnline Embed Code -->
+                
+                <div class="mt-6 text-center text-sm text-gray-500">
+                    <p>Dengan mengisi form ini, Anda menyetujui <a href="#" class="text-red-500 hover:underline">Syarat & Ketentuan</a> kami</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-fire text-2xl text-red-500 mr-2"></i>
+                        <span class="text-xl font-bold">ElectricPan</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Solusi memasak modern untuk keluarga Indonesia</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 ElectricPan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
